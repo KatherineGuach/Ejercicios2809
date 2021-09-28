@@ -1,0 +1,111 @@
+package ejercicio05;
+
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
+
+public class Pila implements ColeccionInterfaz{
+	
+	//Atributos
+	private ArrayList<Integer> pila;
+	private int contador;
+	private int tamanno;
+	
+	//Método constructor
+	public Pila(ArrayList<Integer> pila, int contador, int tamanno) {
+		super();
+		this.pila = pila;
+		this.contador = contador;
+		this.tamanno = tamanno;
+	}
+	
+	//Geter y seters
+	public ArrayList<Integer> getPila() {
+		return pila;
+	}
+
+	public void setPila(ArrayList<Integer> pila) {
+		this.pila = pila;
+	}
+	
+	public int getContador() {
+		return contador;
+	}
+
+	public void setContador(int contador) {
+		this.contador = contador;
+	}
+	
+	public int getTamanno() {
+		return tamanno;
+	}
+
+	public void setTamanno(int tamanno) {
+		this.tamanno = tamanno;
+	}
+	
+	
+	//Implementación de los métodos de la interfaz
+
+	
+
+	//Este método comprueba si el contador el 0
+	@Override
+	public boolean estaVacia() {
+		if (this.contador == 0) {
+			return true;
+		}else {
+			return false;
+		}
+	} //Fin está vacía
+	
+	//Este método comprueba si cabe el elemento
+	@Override
+	public boolean annadir(int elemento) {
+		if (this.pila.size() < this.contador) {
+			this.pila.add(contador,elemento);
+			this.contador++;
+			return true;
+		}else {
+			return false;
+		}			
+	} //Fin añadir
+	
+	//
+	@Override
+	public void primero() {
+		try {
+			if (this.contador == 0) {
+				throw new NoSuchElementException();
+			} else {
+				System.out.println("Primer elemento de la pila " + this.pila.get(contador-1));
+			}
+		}catch (NoSuchElementException e) {
+			System.out.println("La pila está vacía");
+		}
+	
+	}//Fin primero()
+	
+	//Extracción de elemento
+	@Override
+	public void extraer() {
+		try {
+			if (this.contador == 0){
+				throw new NoSuchElementException();
+			}else {
+				System.out.println("El elemento extraído es: " + this.pila.get(contador-1));
+				this.pila.remove(contador-1);
+				this.contador--;
+			}
+		}catch (NoSuchElementException e) {
+			System.out.println("La pila está vacía");
+		}	
+	} //Fin extraeer()
+	
+	
+	//Método String
+	@Override
+	public String toString() {
+		return "Pila [tamanno=" + tamanno + ", contador=" + contador + ", pila=" + pila + "]";
+	}
+
+} 

@@ -1,0 +1,109 @@
+package ejercicio04;
+
+public class Revistas implements Prestable{
+	
+	//Atributos
+	private String codigo;
+	private String titulo;
+	private int año;
+	private int numero;
+	private boolean prestado;
+	
+
+	//Constructor
+	public Revistas(String codigo, String titulo, int año, int numero, boolean prestado) {
+		super();
+		this.codigo = codigo;
+		this.titulo = titulo;
+		this.año = año;
+		this.numero = numero;
+		this.prestado = prestado;
+	}
+	
+	
+	//Geters y seters
+	
+	public String getCodigo() {
+		return codigo;
+	}
+
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+
+	public int getAño() {
+		return año;
+	}
+
+
+	public void setAño(int año) {
+		this.año = año;
+	}
+
+
+	public int getNumero() {
+		return numero;
+	}
+
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+
+	public boolean isPrestado() {
+		return prestado;
+	}
+
+
+	public void setPrestado(boolean prestado) {
+		this.prestado = prestado;
+	}
+	
+
+	//Método toString
+	@Override
+	public String toString() {
+		return "Revistas [codigo=" + codigo + ", titulo=" + titulo + ", año=" + año + ", numero="
+				+ numero + "]";
+	}
+
+
+	//Métodos prestar() y devolver()
+	public void prestar() {
+		this.prestado = true;
+	} //Fin prestar()
+	
+	public void devolver() {
+		if (this.prestado) {
+			this.prestado = true;
+		}else {
+			this.prestado = false;
+		}
+	} //Fin devolver()
+	
+	//Método que devuelve el año de publicación
+	public void añoPublicacion() {
+		System.out.println("La revista ha sido publicada en el año: " + this.año);
+	}
+
+	//Método que devuelve el código del libro
+	public void codigoRevista() {
+		System.out.println("El código de la revista es: " + this.codigo);
+	}
+
+	
+	
+}

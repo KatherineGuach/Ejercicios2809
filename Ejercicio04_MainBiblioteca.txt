@@ -1,0 +1,45 @@
+package ejercicio04;
+
+import java.util.ArrayList;
+
+public class MainBiblioteca {
+
+	public static void main(String[] args) {
+		
+		//Creamos la lista de Publicaiones que contiene libros y revistas
+		ArrayList<Libros> listaLibros = new ArrayList<Libros>();
+		listaLibros.add(new Libros("97825641984", "Harry Potter",1998,false));
+		listaLibros.add(new Libros("97865432165","Historia de dos ciudades",1859,true));
+		listaLibros.add(new Libros("97896410520", "El día que se perdió la cordura",2020, true));
+		
+		ArrayList<Revistas> listaRevistas = new ArrayList<Revistas>();
+		listaRevistas.add(new Revistas("97853314791","SUMA",2021,78,true));
+		listaRevistas.add(new Revistas("97830146540","Epsilon (S.A.E.M Thales)",2016,24,false));
+		listaRevistas.add(new Revistas("97832045897","Nature",1998,132,true));
+		
+		
+		//Mostrando biblioteca de libros y revistas
+		System.out.println("BIBLIOTECA DE LIBROS\n");
+		for (Libros lib : listaLibros) {
+			System.out.println("Código: " + lib.getCodigo());
+			System.out.println("Título: " + lib.getTitulo());
+			System.out.println("Año de publicación: " + lib.getAño());
+			System.out.println("Prestado:" + lib.isPrestado() );			
+			System.out.println();
+		}
+		
+		System.out.println("*******************************************************\n");
+		System.out.println("BIBLIOTECA DE REVISTAS\n");
+		for (Revistas rev : listaRevistas) {
+			System.out.println("Código: " + rev.getCodigo());
+			System.out.println("Título: " + rev.getTitulo());
+			System.out.println("Año de publicación: " + rev.getAño());
+			System.out.println("Prestado:" + rev.isPrestado() );
+		}
+				
+
+	}
+
+	
+
+}

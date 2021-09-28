@@ -1,0 +1,51 @@
+package ejercicio05;
+
+import java.util.ArrayList;
+
+public class MainPila {
+	
+	public static void main(String[] args) {
+		
+		//Creando la pila
+		ArrayList<Integer> listaPila = new ArrayList<Integer>();
+		listaPila.add(12);
+		listaPila.add(23);
+		listaPila.add(34);
+		listaPila.add(45);
+		listaPila.add(56);
+		
+		Pila pila1 = new Pila(listaPila,4,5);
+		
+		ArrayList<Integer> listaNueva = new ArrayList<>();
+		listaNueva.add(1);
+		Pila pila2 = new Pila(listaNueva,1,5);
+		
+		//Operaciones con pila
+		System.out.println(pila1.annadir(21)); //Se añade un elemento
+		System.out.println(pila1); //Mostramos la nueva pila con el elemento añadido
+		
+		System.out.println();
+		
+		System.out.println("Intentamos extraer un nuevo elemento");
+		System.out.println(pila1.annadir(15)); //Intentamos añadir un nuevo elelmeto, pero no se puede
+		
+		System.out.println();
+		
+		pila1.extraer(); //Extraemos el último elemento
+		System.out.println(pila1); //Mostramos la pila después de eliminar el elemenro
+		
+		System.out.println();
+		
+		pila1.primero();
+		
+		System.out.println();
+		
+		pila2.extraer();
+		System.out.println("Verificamos si la lista está o no vacía:");
+		System.out.println(pila2.estaVacia()); //Comprobamos si la pila2 está vacía
+		pila2.extraer(); //No se puede extraer, porque está vacía
+		
+		
+	}
+
+}

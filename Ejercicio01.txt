@@ -1,0 +1,66 @@
+package ejercicio01;
+
+import java.util.Scanner;
+
+public class Ejer01 {
+	
+	
+	public static String invertirCadena(String cadena) {
+
+		String[] palabrasC = cadena.split(" ");
+		String cadenaN = " ";
+		
+		for (int i=1; i < palabrasC.length - 1; i++) {
+			cadenaN = cadenaN + " " + palabrasC[i];
+		}
+		
+		cadenaN = palabrasC[palabrasC.length - 1] + " " + cadenaN + " " + palabrasC[0];
+		return cadenaN;
+	}
+	
+	
+	//PRINCIPAL
+
+	public static void main(String[] args) {
+	    
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.println("Escriba la frase:");
+		String cadenaIn = teclado.nextLine();
+		
+		System.out.println("La frase introducida es: " + cadenaIn);
+		System.out.println("La frase invertida es: " + invertirCadena(cadenaIn));
+		
+		teclado.close();
+	}
+		
+		/**String cadena = "Esto es una prueba.";
+        String[] palabras = cadena.split(" ");
+        for (String palabra : palabras)
+        {
+            System.out.println(palabra);
+        }
+		 */
+		
+		/**
+		String texto = new String("El centro comercial está lleno");
+		//String esp = "";
+		
+		int longCadena = texto.length();
+		String palabra = null;
+		
+		for (int i=0; i<longCadena; i++) {
+			palabra = palabra + texto.charAt(i);
+			System.out.println(palabra);
+			
+			//if (texto.charAt(i) == esp) {
+				
+			}
+		}
+		*/
+		
+		
+
+	}
+
+

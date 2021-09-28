@@ -1,0 +1,71 @@
+package ejercicio03;
+
+import java.util.ArrayList;
+
+
+public class Main {
+
+	//Método principal
+	public static void main(String[] args) {
+		
+		//Creamos la lista de Publicaciones que contiene libros y revistas
+		ArrayList<Publicaciones> listaPubli = new ArrayList<Publicaciones>();
+		listaPubli.add(new Publicaciones("Harry Potter",1998,false));
+		listaPubli.add(new Publicaciones("Historia de dos ciudades",1859,true));
+		listaPubli.add(new Publicaciones("El día que se perdió la cordura",2020, false));
+		listaPubli.add(new Publicaciones("SUMA",2021,false));
+		listaPubli.add(new Publicaciones("Epsilon (S.A.E.M Thales)",2016,false));
+		listaPubli.add(new Publicaciones("Nature",1998,true));
+		
+		//Mostrando los datos de las publicaciones
+		for (Publicaciones p : listaPubli) {
+			System.out.println("Título: " + p.getTitulo());
+			System.out.println("Año publicación: " + p.getAño());
+			String prestado;
+			if (p.isPrestado() == false) {
+				prestado = "No";
+			}else {
+				prestado = "Sí";
+			}
+			
+			System.out.println("Prestado " + prestado);
+			System.out.println();
+		}
+		
+		System.out.println("-------------------------------------------");
+		//Para obtener cuántas publicaciones hay prestadas
+		saldoPrestados(listaPubli);
+		System.out.println();
+		System.out.println("-------------------------------------------");
+		//Para obtener cuántas publicaciones hay anteriores a 2002
+		cantPublicaciones(listaPubli, 2002);
+		
+	} //Fin public main
+	
+
+	//Método 1: saldoPrestados
+	public static void saldoPrestados(ArrayList<Publicaciones> listaPubli) {
+		int cont = 0;
+		for (Publicaciones p : listaPubli) {
+			if(p.isPrestado()) {
+				cont++;
+			}
+		}
+		
+		System.out.println("Están prestadas " + cont + " publicaciones.");	
+	}//Fin saldo prestados
+	
+
+	//Método 2: cantPublicaciones
+	public static void cantPublicaciones(ArrayList<Publicaciones> listaPubli, int año) {
+		int cont = 0;
+		for (Publicaciones p : listaPubli) {
+			if (p.getAño() < año) {
+				cont++;
+			}				
+		}
+		System.out.println("Hay " + cont + " publicaciones anteriores al año " + año);
+	}//Fin cantPublicaciones
+
+
+}
